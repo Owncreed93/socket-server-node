@@ -1,23 +1,29 @@
-# CONFIGURATION
+# SOCKET SERVER CONFIGURATION
+
+## RE BUILD NODE MODULES
+
+``` npm install ```
 
 ## CREATE A TYPESCRIPT FILE CONFIGURATION
 
-tsc --init
+``` tsc --init ```
 
 ### CONFIGURATIONS TO SET
 
-"target": "es6" --> THE RULES APPLY TO HE LANGUAGE ON LINE 7
+"target": "es6" --> THE RULES APPLY TO THE LANGUAGE
 
-"outDir": "dist/" --> WHERE JS FILES WILL BE COMPILED ON LINE 17
+"outDir": "dist/" --> WHERE JS FILES WILL BE COMPILED
 
 "types": [ "node" ] --> SET NODEJS AS A TYPE
 
 ## TERMINAL 1 --> EXECUTE THE TRANSPILER IN WATCH MODE TO MAKE CHANGES WHEN SAVING THE FILE
 
-tsc -w
+``` tsc -w ```
 
 ## TERMINAL 2 --> EXECUTE NODEMON TO WATCH FOR CHANGES ON THE SERVER
 
 ### READS THE JS FILE TRANSPILED BY TYPESCRIPT
 
-nodemon dist/
+``` nodemon dist/ ```
+or
+``` node dist/ ```
