@@ -46,7 +46,7 @@ export default class Server {
             console.log('Client connected');
 
             // * Listening messages
-            socket.mensaje(cliente);
+            socket.mensaje( cliente, this.io );
 
             // * Disconnect
             socket.desconectar(cliente);
