@@ -22,4 +22,24 @@ export const mensaje = ( cliente: Socket, io: socketIO.Server ) => {
 
     })
 
+
+}
+
+// SET UP MESSAGES
+export const configurarUsuario = ( cliente: Socket, io: socketIO.Server ) => {
+
+    cliente.on('configurar-usuario', ( payload: { nombre: string }, callback: Function ) => {
+
+        console.log('Set up user : ', payload.nombre);
+
+        callback({
+
+            ok: true,
+
+            mensaje: `User ${payload.nombre} has been set`
+
+        })
+
+    })
+
 }
