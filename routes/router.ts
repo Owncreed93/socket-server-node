@@ -67,6 +67,35 @@ router.post('/mensajes/:id', (req: Request, res: Response) => {
 
 /* | ------------------------------------------------------------------------------------------------------- | */
 
+// * GET ALL USERS'S ID
+
+router.get('/usuarios', ( req: Request, res: Response) => {
+
+    const server = Server.instance;
+
+    server.io.clients( (err: any , clientes: string[]) => {
+
+        if ( err ) {
+
+            res.json({
+
+                ok: false,
+                err
+
+            })
+
+        }
+
+        res.json({
+
+            ok: true,
+            clientes
+
+        })
+
+    })
+
+})
 
 
 /* | ------------------------------------------------------------------------------------------------------- | */
