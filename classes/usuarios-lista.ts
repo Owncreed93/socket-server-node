@@ -40,7 +40,7 @@ export class UsuariosLista {
     //  * GET USER NAME
     public getLista() {
 
-        return this.lista;
+        return this.lista.filter( usuario => usuario.nombre !== 'Something Doe' ) ;
 
     }
 

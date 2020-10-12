@@ -11,9 +11,10 @@ export const conectarCliente = ( cliente: Socket ) => {
 
     usuariosConectados.agregar( usuario );
 
+
 }
 
-export const desconectar = ( cliente: Socket ) => {
+export const desconectar = ( cliente: Socket, io: socketIO.Server ) => {
 
     cliente.on('disconnect', () => {
 
@@ -21,6 +22,8 @@ export const desconectar = ( cliente: Socket ) => {
         console.log('Client disconnected');
 
         usuariosConectados.BorrarUsuario( cliente.id );
+
+        io.emit('usuarios-activos', usuariosConectados.getLista() );
         
     })
 
@@ -46,6 +49,8 @@ export const configurarUsuario = ( cliente: Socket, io: socketIO.Server ) => {
     cliente.on('configurar-usuario', ( payload: { nombre: string }, callback: Function ) => {
 
         usuariosConectados.actualizarNombre( cliente.id, payload.nombre );
+
+        io.emit('usuarios-activos', usuariosConectados.getLista() );
 
         callback({
 
