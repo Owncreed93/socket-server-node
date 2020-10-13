@@ -49,6 +49,9 @@ export default class Server {
             // * Set up server
             socket.configurarUsuario( cliente, this.io );
 
+            // * Get Users
+            socket.obtenerUsuarios( cliente, this.io ); 
+
             // * Listening messages
             socket.mensaje( cliente, this.io );
 
